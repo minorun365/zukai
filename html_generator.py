@@ -169,13 +169,6 @@ class HTMLGenerator:
             .banner h1, .banner h2, .banner h3, .banner h4, .banner h5, .banner h6,
             .card-header h1, .card-header h2, .card-header h3, .card-header h4, .card-header h5, .card-header h6 {
                 color: white !important;
-                text-shadow: 
-                    1px 1px 0 rgba(0,0,0,0.8),
-                    -1px -1px 0 rgba(0,0,0,0.8),
-                    1px -1px 0 rgba(0,0,0,0.8),
-                    -1px 1px 0 rgba(0,0,0,0.8),
-                    2px 2px 4px rgba(0,0,0,0.9) !important;
-                -webkit-text-stroke: 0.5px rgba(0,0,0,0.6) !important;
             }
             
             /* より具体的に青・紫系の背景を検出 */
@@ -189,26 +182,12 @@ class HTMLGenerator:
             [style*="purple"] h2,
             [style*="purple"] h3 {
                 color: white !important;
-                text-shadow: 
-                    1px 1px 0 rgba(0,0,0,0.8),
-                    -1px -1px 0 rgba(0,0,0,0.8),
-                    1px -1px 0 rgba(0,0,0,0.8),
-                    -1px 1px 0 rgba(0,0,0,0.8),
-                    2px 2px 4px rgba(0,0,0,0.9) !important;
-                -webkit-text-stroke: 0.5px rgba(0,0,0,0.6) !important;
             }
             
             /* .zukai-headerのテキストも確実に見やすくする */
             .zukai-header h1,
             .zukai-header p {
                 color: white !important;
-                text-shadow: 
-                    1px 1px 0 rgba(0,0,0,0.8),
-                    -1px -1px 0 rgba(0,0,0,0.8),
-                    1px -1px 0 rgba(0,0,0,0.8),
-                    -1px 1px 0 rgba(0,0,0,0.8),
-                    2px 2px 4px rgba(0,0,0,0.9) !important;
-                -webkit-text-stroke: 0.5px rgba(0,0,0,0.6) !important;
             }
             
             @media (max-width: 768px) {
