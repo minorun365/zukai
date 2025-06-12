@@ -4,22 +4,24 @@ class HTMLGenerator:
         """基本的なCSSスタイルを生成"""
         return """
         <style>
-            * {
+            /* 完全リセット */
+            *, *::before, *::after {
                 box-sizing: border-box !important;
+                max-width: 100% !important;
             }
             
             html {
                 overflow-x: hidden !important;
-                width: 100% !important;
-                max-width: 100% !important;
+                width: 100vw !important;
+                max-width: 100vw !important;
                 margin: 0 !important;
                 padding: 0 !important;
             }
             
             body {
                 overflow-x: hidden !important;
-                width: 100% !important;
-                max-width: 100% !important;
+                width: 100vw !important;
+                max-width: 100vw !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 position: relative !important;
@@ -27,26 +29,28 @@ class HTMLGenerator:
             
             .zukai-container {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 20px;
+                max-width: min(1200px, 100vw) !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+                padding: 20px !important;
                 background-color: #ffffff;
-                width: 100%;
-                overflow-x: hidden;
+                overflow-x: hidden !important;
+                position: relative !important;
             }
             
             .zukai-header {
                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
                 color: white;
-                padding: 40px;
+                padding: 40px !important;
                 border-radius: 15px;
                 text-align: center;
-                margin-bottom: 30px;
+                margin: 0 0 30px 0 !important;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-                width: 100%;
-                max-width: 100%;
-                overflow: hidden;
-                word-wrap: break-word;
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow: hidden !important;
+                word-wrap: break-word !important;
+                position: relative !important;
             }
             
             .zukai-header h1 {
@@ -58,13 +62,14 @@ class HTMLGenerator:
             .zukai-section {
                 background: #f8f9fa;
                 border-radius: 10px;
-                padding: 30px;
-                margin-bottom: 20px;
+                padding: 30px !important;
+                margin: 0 0 20px 0 !important;
                 box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                width: 100%;
-                max-width: 100%;
-                overflow-x: hidden;
-                word-wrap: break-word;
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+                word-wrap: break-word !important;
+                position: relative !important;
             }
             
             .zukai-section h2 {
@@ -221,19 +226,34 @@ class HTMLGenerator:
                 color: white !important;
             }
             
+            /* すべての要素を完全制御 */
+            .zukai-container, .zukai-container * {
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+            }
+            
             @media (max-width: 768px) {
                 html, body {
                     overflow-x: hidden !important;
-                    width: 100% !important;
-                    max-width: 100% !important;
+                    width: 100vw !important;
+                    max-width: 100vw !important;
                 }
                 
                 .zukai-container {
                     padding: 10px !important;
                     margin: 0 !important;
-                    width: 100% !important;
+                    width: calc(100vw - 20px) !important;
+                    max-width: calc(100vw - 20px) !important;
+                    overflow-x: hidden !important;
+                }
+                
+                .zukai-container * {
                     max-width: 100% !important;
                     overflow-x: hidden !important;
+                    word-wrap: break-word !important;
+                    overflow-wrap: break-word !important;
                 }
                 
                 .zukai-header {
