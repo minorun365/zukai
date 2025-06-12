@@ -191,20 +191,97 @@ class HTMLGenerator:
             }
             
             @media (max-width: 768px) {
+                body {
+                    overflow-x: hidden;
+                }
+                
                 .zukai-container {
                     padding: 10px;
+                    box-sizing: border-box;
+                    max-width: 100%;
+                    overflow-x: hidden;
                 }
                 
                 .zukai-header {
-                    padding: 20px;
+                    padding: 20px 15px;
+                    box-sizing: border-box;
                 }
                 
                 .zukai-header h1 {
                     font-size: 1.8em;
+                    word-wrap: break-word;
                 }
                 
                 .zukai-section {
-                    padding: 20px;
+                    padding: 20px 15px;
+                    box-sizing: border-box;
+                }
+                
+                .data-table {
+                    width: 100%;
+                    display: block;
+                    overflow-x: auto;
+                    white-space: nowrap;
+                    box-sizing: border-box;
+                }
+                
+                .data-table thead, .data-table tbody, .data-table th, .data-table td, .data-table tr {
+                    display: block;
+                }
+                
+                .data-table thead tr {
+                    position: absolute;
+                    top: -9999px;
+                    left: -9999px;
+                }
+                
+                .data-table tr {
+                    border: 1px solid #ccc;
+                    margin-bottom: 10px;
+                    background: white;
+                    border-radius: 5px;
+                    padding: 10px;
+                }
+                
+                .data-table td {
+                    border: none;
+                    border-bottom: 1px solid #eee;
+                    position: relative;
+                    padding-left: 50% !important;
+                    white-space: normal;
+                    text-align: left;
+                }
+                
+                .data-table td:before {
+                    content: attr(data-label) ": ";
+                    position: absolute;
+                    left: 6px;
+                    width: 45%;
+                    padding-right: 10px;
+                    white-space: nowrap;
+                    font-weight: bold;
+                    color: #667eea;
+                }
+                
+                .highlight-box, .important-point, .quote-box {
+                    margin: 15px 0;
+                    padding: 15px;
+                    box-sizing: border-box;
+                }
+                
+                .bullet-list {
+                    padding: 15px;
+                    box-sizing: border-box;
+                }
+                
+                * {
+                    max-width: 100%;
+                    box-sizing: border-box;
+                }
+                
+                img, video, iframe {
+                    max-width: 100% !important;
+                    height: auto !important;
                 }
             }
         </style>
