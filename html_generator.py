@@ -5,14 +5,24 @@ class HTMLGenerator:
         return """
         <style>
             * {
-                box-sizing: border-box;
+                box-sizing: border-box !important;
             }
             
-            html, body {
-                overflow-x: hidden;
-                width: 100%;
-                margin: 0;
-                padding: 0;
+            html {
+                overflow-x: hidden !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            body {
+                overflow-x: hidden !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                position: relative !important;
             }
             
             .zukai-container {
@@ -336,6 +346,14 @@ class HTMLGenerator:
         base_style = HTMLGenerator.generate_base_style()
         
         return f"""
+        <!DOCTYPE html>
+        <html lang="ja">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+            <title>{keyword} の図解</title>
+        </head>
+        <body>
         {base_style}
         <div class="zukai-container">
             <div class="zukai-header">
@@ -344,4 +362,6 @@ class HTMLGenerator:
             </div>
             {content}
         </div>
+        </body>
+        </html>
         """
