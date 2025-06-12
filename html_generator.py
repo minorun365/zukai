@@ -4,12 +4,25 @@ class HTMLGenerator:
         """基本的なCSSスタイルを生成"""
         return """
         <style>
+            * {
+                box-sizing: border-box;
+            }
+            
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            
             .zukai-container {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
                 max-width: 1200px;
                 margin: 0 auto;
                 padding: 20px;
                 background-color: #ffffff;
+                width: 100%;
+                overflow-x: hidden;
             }
             
             .zukai-header {
@@ -20,6 +33,10 @@ class HTMLGenerator:
                 text-align: center;
                 margin-bottom: 30px;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                width: 100%;
+                max-width: 100%;
+                overflow: hidden;
+                word-wrap: break-word;
             }
             
             .zukai-header h1 {
@@ -34,6 +51,10 @@ class HTMLGenerator:
                 padding: 30px;
                 margin-bottom: 20px;
                 box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                width: 100%;
+                max-width: 100%;
+                overflow-x: hidden;
+                word-wrap: break-word;
             }
             
             .zukai-section h2 {
@@ -191,30 +212,41 @@ class HTMLGenerator:
             }
             
             @media (max-width: 768px) {
-                body {
-                    overflow-x: hidden;
+                html, body {
+                    overflow-x: hidden !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
                 }
                 
                 .zukai-container {
-                    padding: 10px;
-                    box-sizing: border-box;
-                    max-width: 100%;
-                    overflow-x: hidden;
+                    padding: 10px !important;
+                    margin: 0 !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    overflow-x: hidden !important;
                 }
                 
                 .zukai-header {
-                    padding: 20px 15px;
-                    box-sizing: border-box;
+                    padding: 20px 15px !important;
+                    margin: 0 0 20px 0 !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    overflow: hidden !important;
                 }
                 
                 .zukai-header h1 {
-                    font-size: 1.8em;
-                    word-wrap: break-word;
+                    font-size: 1.8em !important;
+                    word-wrap: break-word !important;
+                    overflow-wrap: break-word !important;
+                    hyphens: auto !important;
                 }
                 
                 .zukai-section {
-                    padding: 20px 15px;
-                    box-sizing: border-box;
+                    padding: 20px 15px !important;
+                    margin: 0 0 15px 0 !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    overflow-x: hidden !important;
                 }
                 
                 .data-table {
@@ -275,13 +307,24 @@ class HTMLGenerator:
                 }
                 
                 * {
-                    max-width: 100%;
-                    box-sizing: border-box;
+                    max-width: 100% !important;
+                    box-sizing: border-box !important;
+                    overflow-wrap: break-word !important;
+                    word-wrap: break-word !important;
                 }
                 
-                img, video, iframe {
+                img, video, iframe, table, pre, code {
                     max-width: 100% !important;
                     height: auto !important;
+                    overflow-x: auto !important;
+                }
+                
+                /* 長いテキストも確実に折り返し */
+                p, div, span, td, th, li {
+                    word-wrap: break-word !important;
+                    overflow-wrap: break-word !important;
+                    hyphens: auto !important;
+                    max-width: 100% !important;
                 }
             }
         </style>
